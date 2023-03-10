@@ -1,0 +1,32 @@
+<h1>Add Student</h1>
+<%= form_for @student do |f|%>
+<div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+   <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true%>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phonenumber %><br />
+    <%= f.telephone_field :phone_no, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add"%>
+  </div>
+  <%= link_to "Cancel",root_path,class: "btn btn-dark" %>
+<% end %>
