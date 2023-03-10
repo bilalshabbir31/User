@@ -6,11 +6,16 @@ class StudentsController < ApplicationController
         @student=Student.new
     end
     def create
-        debugger
         @student=Student.new(student_params)
         if @student.save
-            redirect_to students_path, status: 201
+            redirect_to students_path, status: :created
         end
+    end
+
+    def destroy
+        @student=Student.find(params[:id])
+        @student.destroy
+        redirect_to students_path, status: 200
     end
 
     private

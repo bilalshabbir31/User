@@ -19,4 +19,12 @@ RSpec.describe "StudentsController", type: :request do
     end
   end
 
+  describe "Delete /Destroy" do
+    let(:student) {Student.create(name:"bilal",last_name:"shabbir",email: "anything@gmail.com",phone_no: 30132003212,age:16)}
+    it "deletes a student" do
+      delete "/students/#{student.id}"
+      expect(response).to have_http_status(200)
+    end
+  end
+
 end

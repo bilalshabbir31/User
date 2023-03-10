@@ -1,2 +1,18 @@
 <h1>Hello World</h1>
-<%=link_to "Add Student",students_new_path %>
+<%=link_to "Add Student",new_student_path %><br>
+<% @students.each do |x| %>
+    <tr>
+    <td> <%= x.id%> </td>
+    <td> <%= x.name %> </td>
+    <td> <%= x.last_name %> </td>
+    <td> <%= x.email %> </td>
+    <td> <%= x.age %> </td>
+    <td> <%= x.phone_no %> </td>
+    <td><%= link_to "Delete", student_path(x), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  }, class: "btn btn-dark" %></td>
+      </a>
+      <br>
+    </tr>
+<% end %>
