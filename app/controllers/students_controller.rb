@@ -8,14 +8,23 @@ class StudentsController < ApplicationController
     def create
         @student=Student.new(student_params)
         if @student.save
-            redirect_to students_path, status: :created
+            redirect_to @student, status: 302
+        else
+            render :new, status: :unprocessable_entity
         end
+    end
+
+    def show
+        @student=Student.find(params[:id])
     end
 
     def destroy
         @student=Student.find(params[:id])
-        @student.destroy
-        redirect_to students_path, status: 200
+        if @student.destroy
+            redirect_to students_path, status: :see_other
+        else
+            render :index, status: :unprocessable_entity
+        end
     end
 
     private
