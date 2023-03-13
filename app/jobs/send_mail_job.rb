@@ -1,6 +1,6 @@
 class SendMailJob < ApplicationJob
   queue_as :default
-
+  
   def perform(user_id)
     # Do something later
     user=Student.find(user_id)
