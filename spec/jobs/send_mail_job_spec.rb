@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe SendMailJob, type: :job do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#perform" do
+    
+    let(:student) {create (:student)}
+
+
+  end
 end
