@@ -8,6 +8,7 @@ class StudentsController < ApplicationController
     def create
         @student=Student.new(student_params)
         if @student.save
+            MyMailer.welcome_email(@student).deliver_now
             redirect_to @student, status: 302
         else
             render :new, status: :unprocessable_entity
