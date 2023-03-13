@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -9,4 +10,5 @@ Rails.application.routes.draw do
   post '/students/', to: 'students#create'
   delete '/students/:id', to: 'students#destroy', as: :student
   root "students#index"
+  mount Sidekiq::Web => '/sidekiq'
 end
