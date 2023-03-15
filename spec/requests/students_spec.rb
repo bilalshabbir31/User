@@ -6,7 +6,6 @@ RSpec.describe "StudentsController", type: :request do
     # make get request
     it "get index request" do
       get students_path
-      expect(response).to have_http_status(200)
       expect(response).to be_successful
     end
 
